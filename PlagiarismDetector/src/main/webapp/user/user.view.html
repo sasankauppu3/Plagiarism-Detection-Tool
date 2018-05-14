@@ -1,0 +1,35 @@
+<div ng-if="vm.user">
+    <p style="text-align:left;">
+        <a href="/" class="btn btn-secondary"> << Back </a>
+        <span style="float:right;">Logged in as: <strong>{{vm.user.firstName}}</strong> |
+        <a href="#!/login" class="btn btn-primary">Logout</a></span>
+    </p>
+</div>
+<hr>
+
+<h3>Registered Users:</h3>
+<p>&nbsp;</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Account Type</th>
+
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in vm.allUsers">
+        <td> {{user.firstName}} </td>
+        <td> {{user.lastName}} </td>
+        <td> {{user.email}} </td>
+        <td> {{user.userType}} </td>
+
+        <td class="text-right">
+            <span><a ng-click="vm.deleteUser(user.id)" class="btn btn-danger">Delete</a> </span>
+        </td>
+    </tr>
+    </tbody>
+</table>

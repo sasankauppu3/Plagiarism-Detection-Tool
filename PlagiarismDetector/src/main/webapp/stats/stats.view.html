@@ -1,0 +1,28 @@
+<div ng-if="vm.user">
+    <p style="text-align:left;">
+        <a href="/" class="btn btn-secondary"> << Back </a>
+        <span style="float:right;">Logged in as: <strong>{{vm.user.firstName}}</strong> |
+        <a href="#!/login" class="btn btn-primary">Logout</a></span>
+    </p>
+</div>
+<hr>
+
+<h3 style="text-align:left;">
+    <strong>Algorithm Usage Statistics:</strong>
+</h3>
+<p>&nbsp;</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Algorithm Name</th>
+        <th>Times Used</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="stats in vm.folderStats">
+        <td>{{stats.algorithmName}}</td>
+        <td>{{stats.count}}</td>
+    </tr>
+    </tbody>
+</table>

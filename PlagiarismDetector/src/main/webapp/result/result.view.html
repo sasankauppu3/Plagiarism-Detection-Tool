@@ -1,0 +1,38 @@
+<div ng-if="vm.user">
+    <p style="text-align:left;">
+        <a href="/" class="btn btn-secondary"> << Back </a>
+        <span style="float:right;">Logged in as: <strong>{{vm.user.firstName}}</strong> |
+        <a href="#!/login" class="btn btn-primary">Logout</a></span>
+    </p>
+</div>
+<hr>
+
+<h3 style="text-align:left;">
+    <strong>Results:</strong>
+    <span style="float:right;">
+        Algorithm Used: &nbsp;{{vm.comparisionType}}
+    </span>
+</h3>
+<p>&nbsp;</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>First File</th>
+        <th>Second File</th>
+        <th>Similarity in (%)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="(key,files) in vm.folderResults">
+        <td> {{files.file1}} <br><hr>
+        <td> {{files.file2}} <br><hr>
+        <td> {{files.similarity | number : 2}} </td>
+        <td>
+            <span><a ng-click="vm.showDifference(files)" class="btn btn-primary">Show Difference</a> </span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+

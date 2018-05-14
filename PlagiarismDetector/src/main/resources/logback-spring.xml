@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <appender name="mail" class="ch.qos.logback.classic.net.SMTPAppender">
+        <smtpHost>smtp.gmail.com</smtpHost>
+        <smtpPort>465</smtpPort>
+        <username>msdteam111@gmail.com</username>
+        <password>msd_team111</password>
+        <from>msdteam111@gmail.com</from>
+        <to>cug.ie.lixin@gmail.com</to>
+        <subject>Something went wrong</subject>
+        <layout class="ch.qos.logback.classic.html.HTMLLayout"/>
+    </appender>
+    <property name="DEV_HOME" value="logs" />
+    <appender name="FILE-AUDIT"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${DEV_HOME}/debug.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %d{yyyy-MM-dd HH:mm:ss} - %msg%n
+            </Pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${DEV_HOME}/archived/debug.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+    </appender>
+    <logger name="plagiarismDetector" level="debug"
+            additivity="false">
+        <appender-ref ref="FILE-AUDIT" />
+    </logger>
+
+
+    <root level="error">
+        <appender-ref ref="mail"/>
+        <appender-ref ref="FILE-AUDIT" />
+    </root>
+</configuration>

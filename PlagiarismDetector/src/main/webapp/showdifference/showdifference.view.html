@@ -1,0 +1,33 @@
+<div ng-if="vm.user">
+    <p style="text-align:left;">
+        <a href="/#!/results" class="btn btn-secondary"> << Back </a>
+        <span style="float:right;">Logged in as: <strong>{{vm.user.firstName}}</strong> |
+        <a href="#!/login" class="btn btn-primary">Logout</a></span>
+    </p>
+</div>
+<hr>
+
+<h3 style="text-align:left;">
+    <strong>Results:</strong>
+    <span style="float:right;">
+        Algorithm Used: &nbsp;{{vm.comparisionType}}
+    </span>
+</h3>
+<p>&nbsp;</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>First File</th>
+        <th>Second File</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table table-dark">
+        <td> <p ng-bind-html=convert1></p> </td>
+        <td> <p ng-bind-html=convert2></p> </td>
+    </tr>
+    </tbody>
+</table>
+
+
