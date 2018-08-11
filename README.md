@@ -5,6 +5,10 @@ Team Project:
 - Gautam Baghel
 - Xin Li
 
+## Description : 
+
+- Plagiarism Detection Tool is a tool for instructors to detect plagiarism on multiple student submissions (Python code files) with scores and compare them line-by-line for plagiarism. This tool has been built and deployed as a web-based system using Java SpringBoot, Jenkins for Continuous Integration and deployed on AWS. 
+- Various Abstract syntax tree matching algorithms have been implemented for detecting plagiarism, and a gradient descent algorithm has been used on the outputs of the algorithms as a Machine Learning model to improve the plagiarism score prediction.
 
 ## Getting Started
 
@@ -28,10 +32,6 @@ Team Project:
 ## Course Webpage
 
 For more info visit - [Course Webpage](https://course.ccs.neu.edu/cs5500/)
-
-## Policies
-
-The policies for this project is listed here - see the [Policies](https://course.ccs.neu.edu/cs5500/pol.html) file for details
 
 ## Acknowledgments
 
